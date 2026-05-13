@@ -112,6 +112,7 @@
             android:text="+ ADD PRIME CONTACT"
             android:textColor="#FF1744"
             android:background="@drawable/bg_input_field"
+            android:backgroundTint="@null"
             android:layout_marginTop="8dp"
             android:layout_marginBottom="16dp" />
 
