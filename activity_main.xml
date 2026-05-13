@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_gradient_mesh">
+
+    <!-- Full screen red overlay (alpha = 0 default) -->
+    <View
+        android:id="@+id/redOverlay"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#FF1744"
+        android:alpha="0"
+        android:visibility="visible" />
+
+    <!-- Top Bar -->
+    <LinearLayout
+        android:id="@+id/topBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingTop="44dp"
+        android:paddingHorizontal="16dp"
+        android:paddingBottom="8dp"
+        android:gravity="center_vertical">
+
+        <!-- Left: Battery + RAM -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+            <TextView
+                android:id="@+id/batteryText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="🔋---%"
+                android:textColor="#FF1744"
+                android:textSize="11sp"
+                android:fontFamily="monospace" />
+            <TextView
+                android:id="@+id/ramText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="RAM: ---"
+                android:textColor="#555555"
+                android:textSize="10sp"
+                android:fontFamily="monospace" />
+        </LinearLayout>
+
+        <!-- Center: Title -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:orientation="vertical"
+            android:gravity="center">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="ELIX"
+                android:textColor="#FF1744"
+                android:textSize="22sp"
+                android:fontFamily="sans-serif-black"
+                android:letterSpacing="0.3" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="AI COMPANION"
+                android:textColor="#555555"
+                android:textSize="10sp"
+                android:fontFamily="monospace" />
+        </LinearLayout>
+
+        <!-- Right: Time + Settings -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:gravity="end">
+            <TextView
+                android:id="@+id/timeText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="--:--"
+                android:textColor="#FF1744"
+                android:textSize="11sp"
+                android:fontFamily="monospace" />
+            <ImageButton
+                android:id="@+id/settingsBtn"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:src="@drawable/ic_settings"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:contentDescription="Settings" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <!-- Center: Orb + Waveform + Status -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:paddingBottom="220dp">
+
+        <com.elix.assistant.ui.main.OrbAnimationView
+            android:id="@+id/orbView"
+            android:layout_width="260dp"
+            android:layout_height="260dp" />
+
+        <com.elix.assistant.ui.main.WaveformView
+            android:id="@+id/waveformView"
+            android:layout_width="200dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="12dp" />
+
+        <TextView
+            android:id="@+id/statusText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Connecting..."
+            android:textColor="#555555"
+            android:textSize="13sp"
+            android:layout_marginTop="12dp"
+            android:fontFamily="sans-serif" />
+    </LinearLayout>
+
+    <!-- Bottom: Chat + Mic -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_gravity="bottom"
+        android:paddingBottom="32dp">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/chatRecycler"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:paddingHorizontal="16dp"
+            android:clipToPadding="false" />
+
+        <!-- Mic Button -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:layout_marginTop="12dp">
+
+            <ImageButton
+                android:id="@+id/micButton"
+                android:layout_width="72dp"
+                android:layout_height="72dp"
+                android:src="@drawable/ic_mic_off"
+                android:background="@drawable/bg_mic_button"
+                android:contentDescription="Microphone"
+                android:scaleType="centerInside"
+                android:padding="18dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Long press to stop"
+                android:textColor="#555555"
+                android:textSize="11sp"
+                android:layout_marginTop="6dp" />
+        </LinearLayout>
+    </LinearLayout>
+
+</FrameLayout>

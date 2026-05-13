@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_overlay_orb">
+
+    <com.elix.assistant.ui.main.OrbAnimationView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="ELIX"
+        android:textColor="#FF1744"
+        android:textSize="10sp"
+        android:fontFamily="sans-serif-black"
+        android:layout_gravity="bottom|center_horizontal"
+        android:layout_marginBottom="8dp" />
+
+    <ImageButton
+        android:id="@+id/closeOrbBtn"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:src="@drawable/ic_close"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:layout_gravity="top|end"
+        android:layout_margin="4dp"
+        android:contentDescription="Close" />
+
+</FrameLayout>
